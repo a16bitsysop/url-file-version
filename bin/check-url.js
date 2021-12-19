@@ -1,7 +1,7 @@
 #!/usr/bin/env node
 
 var argv = require('yargs/yargs')(process.argv.slice(2))
-             .usage('Usage: $0 <command> [options]')
+             .usage('Usage: $0 url-file-version [options]')
              .alias('u', 'url')
              .nargs('u', 1)
              .describe('u', 'url to check for version')
@@ -33,7 +33,7 @@ if (!argv.brief) {
 ;(async () => {
   try {
     var {res, body} = await compose(
-      Request.defaults({headers: {'user-agent': 'request-compose'}}),
+      Request.defaults({headers: {'user-agent': 'request-compose'}, timeout: 60000}),
       Request.url(argv.url),
       Request.send(),
       Response.buffer(),
