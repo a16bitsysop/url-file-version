@@ -17,7 +17,12 @@ Usage:  url-file-version [options]
 | -b, --brief  | only output version number found                   | [boolean] |
 | -h, --help   | Show help                                          | [boolean] |
 
-## example
+## examples
+if already installed
 ```bash
 url-file-version --url https://ftp.denx.de/pub/u-boot/ --prefix u-boot --ending .tar.bz2
+```
+with npm exec (npx)
+```bash
+npm exec --no-update-notifier --yes -- url-file-version --url https://ftp.denx.de/pub/u-boot/ --prefix u-boot --ending .tar.bz2
 ```
